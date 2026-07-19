@@ -256,6 +256,63 @@
     .gallery{ grid-template-columns:1fr; }
   }
 
+  /* ---------- Trust bar ---------- */
+  .trust-bar{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:16px;
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:16px;
+    padding:26px 20px;
+  }
+  .trust-item{ text-align:center; }
+  .trust-num{
+    font-family:'IBM Plex Mono',monospace; font-size:1.6rem; font-weight:600;
+    color:var(--brass-light); direction:ltr;
+  }
+  .trust-label{ font-size:0.85rem; color:var(--text-muted); margin-top:4px; }
+  @media (max-width:640px){ .trust-bar{ grid-template-columns:repeat(2,1fr); } }
+
+  /* ---------- Reviews ---------- */
+  .reviews-grid{
+    display:grid; grid-template-columns:repeat(2,1fr); gap:18px;
+  }
+  .review-card{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:14px;
+    padding:22px 24px;
+  }
+  .review-card .stars{ color:var(--brass-light); font-size:1rem; margin-bottom:10px; direction:ltr; }
+  .review-card p{ font-size:0.95rem; opacity:0.9; }
+  .map-embed{ margin-top:30px; border:1px solid var(--line); border-radius:16px; overflow:hidden; }
+  @media (max-width:640px){ .reviews-grid{ grid-template-columns:1fr; } }
+
+  /* ---------- FAQ ---------- */
+  .faq-list{ display:flex; flex-direction:column; gap:12px; }
+  .faq-item{
+    background:var(--bg-panel); border:1px solid var(--line); border-radius:12px;
+    padding:18px 22px;
+  }
+  .faq-item summary{
+    cursor:pointer; font-weight:700; font-size:1rem; list-style:none;
+    display:flex; justify-content:space-between; align-items:center;
+  }
+  .faq-item summary::-webkit-details-marker{ display:none; }
+  .faq-item summary::after{ content:'+'; color:var(--brass-light); font-size:1.3rem; }
+  .faq-item[open] summary::after{ content:'−'; }
+  .faq-item p{ margin-top:12px; color:var(--text-muted); font-size:0.92rem; line-height:1.7; }
+
+  /* ---------- Sticky mobile bar ---------- */
+  .sticky-bar{ display:none; }
+  @media (max-width: 640px){
+    .sticky-bar{
+      display:flex; position:fixed; bottom:0; left:0; right:0; z-index:100;
+      border-top:1px solid var(--line); background:var(--bg-deep);
+    }
+    .sticky-btn{
+      flex:1; text-align:center; padding:16px 8px; font-weight:700; font-size:0.95rem;
+    }
+    .sticky-call{ background:var(--bg-panel-2); color:var(--text-main); }
+    .sticky-wa{ background:var(--brass); color:#1a1206; }
+    body{ padding-bottom:56px; }
+  }
+
   /* ---------- Responsive ---------- */
   @media (max-width: 860px){
     .hero-grid{ grid-template-columns:1fr; }
