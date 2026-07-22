@@ -11,15 +11,19 @@
 
   // Conversion tracking for phone/WhatsApp clicks
   function gtag_report_conversion(url, label) {
-    var callback = function () {
+    var already_navigated = false;
+    var navigate = function () {
+      if (already_navigated) return;
+      already_navigated = true;
       if (typeof(url) != 'undefined') {
         window.location = url;
       }
     };
     gtag('event', 'conversion', {
         'send_to': 'AW-18125519177/' + label,
-        'event_callback': callback
+        'event_callback': navigate
     });
+    setTimeout(navigate, 1000); // safety fallback: never block the user
     return false;
   }
 </script>
